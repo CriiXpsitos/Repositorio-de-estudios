@@ -1,7 +1,18 @@
 class Persona{
+    static contadorObjetosPersonas = 0
     constructor(nombre, apellido){
         this._nombre = nombre
         this._apellido = apellido
+        Persona.contadorObjetosPersonas++
+    }
+
+
+    static saludar(){
+        console.log("saludos desde metodo static")
+    }
+
+    static saludar2(persona){
+        console.log(`hola ${persona.nombre}`)
     }
 
     get nombre() {
@@ -47,6 +58,7 @@ class Empleado extends Persona{
     }
 
     
+    
 }
 
 
@@ -60,3 +72,12 @@ let empleado1 = new Empleado("cristian", "peña", "Desarrollo")
 console.log(empleado1.nombreCompleto())
 
 console.log(empleado1.toString()) 
+
+//persona1.saludar() no es posible llamar un método static desde un objeto
+
+Persona.saludar()
+Persona.saludar2(persona1)
+
+Empleado.saludar2(empleado1)
+
+console.log(Persona.contadorObjetosPersonas)
