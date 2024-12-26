@@ -1,0 +1,90 @@
+---
+console.log("Hello from about.astro");
+
+const pageTitle = "Sobre mi";
+
+const identity = {
+  firstName: "Cristian",
+  country: "Colombia",
+  occupation: "Desarrollador Web",
+  hobbies: ["Leer", "Escribir", "Caminar", "Programar"],
+};
+
+const skills = [
+  "html",
+  "css",
+  "javascript",
+  "react",
+  "nodejs",
+  "express",
+  "mongodb",
+  "git",
+  "github",
+  "vscode",
+  "react",
+  "astro",
+];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "navy";
+const textCase = "uppercase";
+const fontWeight = "bold";
+
+
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+
+
+<BaseLayout pageTitle={pageTitle}>
+  <h2>Este es un ejemplo de tutorial de astro</h2>
+
+  <p>Estas son algunas cosas sobre mi:</p>
+  <ul>
+    <li>Nombre: {identity.firstName}</li>
+    <li>Pais: {identity.country}</li>
+    <li>Ocupacion: {identity.occupation}</li>
+    {
+      identity.hobbies.length > 2 && (
+        <li>
+          Dos de mis aficiones son: {identity.hobbies[0]} y{" "}
+          {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
+  <p>Mis habilidades son:</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+
+  {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+
+  {finished && <p>¡He terminado este tutorial!</p>}
+
+  {
+    goal === 3 ? (
+      <p>Mi objetivo es terminar en 3 días.</p>
+    ) : (
+      <p>Mi objetivo no son 3 días.</p>
+    )
+  }
+</BaseLayout>
+
+<style define:vars={{ skillColor, textCase, fontWeight }}>
+    h1 {
+      color: blue;
+      font-size: 4rem;
+    }
+  
+    .skill {
+      color: var(--skillColor);
+      font-weight: var(--textCase);
+      text-transform: var(--fontWeight);
+      text-decoration: underline;
+    }
+  </style>
