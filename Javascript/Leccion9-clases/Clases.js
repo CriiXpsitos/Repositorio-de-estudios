@@ -81,3 +81,7 @@ Persona.saludar2(persona1)
 Empleado.saludar2(empleado1)
 
 console.log(Persona.contadorObjetosPersonas)
+
+
+let idPersona = 0
+console.log(++idPersona)
