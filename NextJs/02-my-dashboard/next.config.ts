@@ -9,10 +9,16 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "pokeapi.co"
-      }
-    ]
-  }
+        hostname: "pokeapi.co",
+      },
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        port: "",
+        pathname: "/PokeAPI/sprites/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
