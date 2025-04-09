@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { JSX } from "react";
 
 interface Props {
   path: string;
@@ -11,8 +12,8 @@ interface Props {
 
 export const SiderbarMenu = ({ path, icon: Icon, title, subtitle }: Props) => {
 
-    //saber el path de la pagina con el componente pathName
-    const pathname = usePathname()
+  //saber el path de la pagina con el componente pathName
+  const pathname = usePathname()
 
   return (
     <Link
