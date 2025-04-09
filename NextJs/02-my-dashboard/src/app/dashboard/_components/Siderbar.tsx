@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Atom, Calculator, PocketKnifeIcon } from "lucide-react";
+import { Atom, Calculator, Heart, PocketKnifeIcon } from "lucide-react";
 import { Globe } from "lucide-react";
 import { SiderbarMenu } from "./SiderbarMenu";
 
@@ -21,6 +21,12 @@ const menuItems = [
     icon: <PocketKnifeIcon size={40} />,
     title: "Pokemones",
     subtitle: "Generacion Estática ",
+  },
+  {
+    path: "/dashboard/favorites",
+    icon: <Heart size={40} />,
+    title: "Favoritos",
+    subtitle: "Tus favoritos :D ",
   },
 ];
 
