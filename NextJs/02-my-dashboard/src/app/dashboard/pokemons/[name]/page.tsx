@@ -1,6 +1,5 @@
 import { Pokemon } from "@/interfaces/pokemon";
 import { PokemonsResponse } from "@/interfaces/pokemons-response";
-import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 

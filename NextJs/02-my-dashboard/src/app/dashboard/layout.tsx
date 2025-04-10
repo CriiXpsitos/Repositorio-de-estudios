@@ -1,5 +1,6 @@
 import type React from "react";
 import { Siderbar } from "./_components/Siderbar";
+import { Providers } from "@/store/Providers";
 
 export default function DashboardLayout({
   children,
@@ -11,7 +12,9 @@ export default function DashboardLayout({
       <Siderbar />
       {/* Main Content */}
       <main className="flex-1 ml-64 relative overflow-y-auto">
+        <Providers>
         <div className="p-6 max-w-7xl h-full mx-auto text-slate-900">{children}</div>
+        </Providers>
       </main>
     </div>
   );

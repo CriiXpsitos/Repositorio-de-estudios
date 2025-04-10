@@ -1,9 +1,10 @@
-import type { PokemonsResponse } from "@/interfaces/pokemons-response";
-import type { SimplePokemon } from "@/interfaces/simple-pokemon";
-import { PokemonGrid } from "@/app/dashboard/pokemons/_components/PokemonGrid";
+// import type { PokemonsResponse } from "@/interfaces/pokemons-response";
+// import type { SimplePokemon } from "@/interfaces/simple-pokemon";
+// import { PokemonGrid } from "@/app/dashboard/pokemons/_components/PokemonGrid";
+import type { Metadata } from "next";
 
 
-export const metadata = {
+export const metadata: Metadata = {
  title: 'Favoritos',
  description: 'Favoritos, esto son los favoritos de los pokemones',
 };

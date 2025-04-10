@@ -14,13 +14,12 @@ export const PokemonCard = ({ pokemon }: SimplePokemons) => {
     <div className="mx-auto right-0 mt-2 w-60">
       <div className="bg-white rounded overflow-hidden shadow-lg">
         <div className="text-center p-6 bg-gray-800 border-b">
-          (
           <Image
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
             alt={name}
             width={100}
             height={100}
-            className="mx-auto"
+            className="w-20 h-20 mx-auto object-cover"
             priority={false}
           />
           <p className="pt-2 text-lg font-semibold text-gray-50 capitalize">
