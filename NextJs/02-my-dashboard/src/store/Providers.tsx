@@ -1,18 +1,21 @@
-'use client'
+"use client";
 
 interface Props {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
-import { Provider } from "react-redux"
-import { store } from "."
+import { Provider } from "react-redux";
+import { AppStore, makeStore } from ".";
+import {  useRef } from "react";
+import { initCounterState } from "./counter/counterSlicer";
 
+export const Providers = ({ children }: Props) => {
+  const storeRef = useRef<AppStore | null>(null);
 
-export const Providers = ({children} : Props) => {
-  return (
-    <Provider store={store}>
-        {children}
-    </Provider>
-  )
+  if (!storeRef.current) {
+    storeRef.current = makeStore();
+    storeRef.current.dispatch(initCounterState(20));
+  }
 
-}
+  return <Provider store={storeRef.current}>{children}</Provider>;
+};

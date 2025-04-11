@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 import { useAppSelector } from "@/store";
-import { stat } from "fs";
 
 interface SimplePokemons {
   pokemon: SimplePokemon;
