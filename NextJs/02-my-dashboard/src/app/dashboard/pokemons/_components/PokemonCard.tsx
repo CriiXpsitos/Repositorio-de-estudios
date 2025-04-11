@@ -1,7 +1,11 @@
+'use client'
+
 import { SimplePokemon } from "@/interfaces/simple-pokemon";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart } from "lucide-react";
+import { useAppSelector } from "@/store";
+import { stat } from "fs";
 
 interface SimplePokemons {
   pokemon: SimplePokemon;
@@ -9,6 +13,9 @@ interface SimplePokemons {
 
 export const PokemonCard = ({ pokemon }: SimplePokemons) => {
   const { id, name } = pokemon;
+  const isFavorite = useAppSelector(state => !!state.pokemons[id])
+
+  
 
   return (
     <div className="mx-auto right-0 mt-2 w-60">
@@ -37,14 +44,14 @@ export const PokemonCard = ({ pokemon }: SimplePokemons) => {
         <div className="border-b">
           <div className="px-4 py-2 hover:bg-gray-100 flex">
             <div className="text-red-600">
-              <Heart />
+              <Heart className={`${isFavorite ? "fill-red-500" : "fill-none"}`}/>
             </div>
             <div className="pl-3">
               <p className="text-sm font-medium text-gray-800 leading-none">
-                No es favorito
+                {isFavorite ? "Esta en tus favoritos" : "No esta en tus favoritos"}
               </p>
               <p className="text-xs text-gray-500">
-                Pon este pokemon en favorito
+                {isFavorite ? "Quita este pokemon de favoritos" : "Pon este pokemon en favoritos"}
               </p>
             </div>
           </div>
