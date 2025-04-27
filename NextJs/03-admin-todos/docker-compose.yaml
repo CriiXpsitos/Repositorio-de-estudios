@@ -1,6 +1,4 @@
-version: "3"
-
-services: 
+services:
   todosDB:
     image: postgres:15.3
     container_name: todos-db
@@ -12,4 +10,3 @@ services:
       - POSTGRES_PASSWORD=postgres
     volumes:
       - ./postgres:/var/lib/postgresql/data
-      
