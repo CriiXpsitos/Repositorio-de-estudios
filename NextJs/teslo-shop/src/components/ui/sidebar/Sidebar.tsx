@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useUIStore } from "@/store"
-import clsx from "clsx"
-import Link from "next/link"
+import { useUIStore } from "@/store";
+import clsx from "clsx";
+import Link from "next/link";
 import {
   IoCloseOutline,
   IoLogInOutline,
@@ -12,17 +12,22 @@ import {
   IoSearchOutline,
   IoShirtOutline,
   IoTicketOutline,
-} from "react-icons/io5"
+} from "react-icons/io5";
 
 export const Sidebar = () => {
-  const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen)
-  const closeSideMenu = useUIStore((state) => state.closeSideMenu)
+  const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
+  const closeSideMenu = useUIStore((state) => state.closeSideMenu);
+
+  
 
   return (
     <div>
       {/* Background black */}
       {isSideMenuOpen && (
-        <div className="fixed top-0 left-0 w-screen h-screen z-10 bg-black/40" onClick={closeSideMenu} />
+        <div
+          className="fixed top-0 left-0 w-screen h-screen z-10 bg-black/40"
+          onClick={closeSideMenu}
+        />
       )}
 
       {/* Blur */}
@@ -39,7 +44,7 @@ export const Sidebar = () => {
           {
             "translate-x-full": !isSideMenuOpen,
             "translate-x-0": isSideMenuOpen,
-          },
+          }
         )}
       >
         <div className="sticky top-0 bg-white z-10 px-6 py-5 border-b border-gray-100">
@@ -50,7 +55,10 @@ export const Sidebar = () => {
           />
 
           <div className="relative mt-8">
-            <IoSearchOutline size={20} className="absolute top-3 left-3 text-gray-400" />
+            <IoSearchOutline
+              size={20}
+              className="absolute top-3 left-3 text-gray-400"
+            />
             <input
               type="text"
               placeholder="Buscar"
@@ -62,7 +70,9 @@ export const Sidebar = () => {
         <div className="px-4 py-2">
           {/* User Section */}
           <div className="mb-6">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 px-2 mb-2 mt-4">Tu cuenta</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 px-2 mb-2 mt-4">
+              Tu cuenta
+            </h3>
 
             <Link
               href="/"
@@ -73,7 +83,7 @@ export const Sidebar = () => {
             </Link>
 
             <Link
-              href="/"
+              href="/orders"
               className="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-all text-gray-700 hover:text-blue-600"
             >
               <IoTicketOutline size={22} className="mr-3 text-gray-500" />
@@ -130,5 +140,5 @@ export const Sidebar = () => {
         </div>
       </nav>
     </div>
-  )
-}
+  );
+};

@@ -1,12 +1,27 @@
+import { Pagination, ProductsGrid, Title } from "@/components";
+// import { initialData } from "@/seed/seed";
+// import { Product } from "@/interfaces";
+// import { prisma } from "@/prisma";
+import { getPaginatedProductsWithImages } from "@/actions";
+import { redirect } from "next/navigation";
 
+interface Props {
+  searchParams: Promise<{
+    page: number;
+  }>;
+}
 
-import { ProductsGrid, Title } from "@/components";
-import { initialData } from "@/seed/seed";
-import { Product } from "@/interfaces";
+export default async function Home({ searchParams }: Props) {
+  const { page } = await searchParams;
 
-const products = initialData.products as Product[];
+  const { products, totalPages } =
+    await getPaginatedProductsWithImages({
+      page: page,
+      take: 12,
+    });
 
-export default function Home() {
+  if (products.length === 0) redirect("/");
+
   return (
     <>
       <Title
@@ -15,6 +30,8 @@ export default function Home() {
         className="mb-2 mx-8"
       />
       <ProductsGrid products={products} />
+
+      <Pagination totalPages={totalPages} />
     </>
   );
 }

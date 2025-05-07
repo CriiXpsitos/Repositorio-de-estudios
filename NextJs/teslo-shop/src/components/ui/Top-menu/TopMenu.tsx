@@ -3,11 +3,13 @@ import { titleFont } from "@/config/fonts";
 import Link from "next/link";
 import { IoSearchOutline, IoCartOutline } from "react-icons/io5";
 import { OpenMenuButton } from "./openMenuButton";
+import { NavLinks } from "./nav-liks/NavLinks";
 
 const Routes = [
-  { label: "Hombres", path: "/category/men" },
-  { label: "Mujeres", path: "/category/women" },
-  { label: "Niños", path: "/category/kids" },
+  { label: "Hombres", path: "/gender/men" },
+  { label: "Mujeres", path: "/gender/women" },
+  { label: "Niños", path: "/gender/kid" },
+  { label: "Para todos", path: "/gender/unisex" },
 ];
 
 export const TopMenu = () => {
@@ -26,13 +28,7 @@ export const TopMenu = () => {
       {/* Center Menu */}
       <div className="hidden sm:block ">
         {Routes.map((route) => (
-          <Link
-            key={route.label}
-            href={route.path}
-            className="m-2 p-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
-            {route.label}
-          </Link>
+          <NavLinks key={route.path} label={route.label} path={route.path}/>
         ))}
       </div>
 
