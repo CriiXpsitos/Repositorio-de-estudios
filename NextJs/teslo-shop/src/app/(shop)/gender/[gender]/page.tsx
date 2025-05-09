@@ -1,5 +1,7 @@
-import { productsWithGenderPagination } from "@/actions/category/productsWithGenderPagination";
-import { isValidCategory } from "@/actions/category/isValidCategory";
+export const revalidate = 60;
+
+import { productsWithGenderPagination } from "@/actions/gender/productsWithGenderPagination";
+import { isValidGender } from "@/actions/gender/isValidGender";
 import { Pagination, ProductsGrid, Title } from "@/components";
 import { notFound } from "next/navigation";
 
@@ -19,7 +21,7 @@ export const metadata = {
 export default async function CategoryPage({ params, searchParams }: Props) {
   const [{ gender }, { page }] = await Promise.all([params, searchParams]);
 
-  const validCategory = await isValidCategory(gender);
+  const validCategory = await isValidGender(gender);
 
   if (!validCategory) return notFound();
 

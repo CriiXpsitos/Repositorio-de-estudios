@@ -1,3 +1,7 @@
+export const revalidate = 60
+
+
+
 import { Pagination, ProductsGrid, Title } from "@/components";
 // import { initialData } from "@/seed/seed";
 // import { Product } from "@/interfaces";

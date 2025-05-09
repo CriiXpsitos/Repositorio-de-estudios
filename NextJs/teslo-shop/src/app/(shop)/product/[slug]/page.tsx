@@ -1,11 +1,16 @@
+export const revalidate = 604800;
+
+
+
+import { getPorductBySlug } from "@/actions";
 import {
   ProductMobileSlidesShow,
   ProductSlidesShow,
   QuantitySelector,
   SizeSelector,
+  StockLabel,
 } from "@/components";
 import { titleFont } from "@/config/fonts";
-import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
 
 interface Props {
@@ -14,8 +19,9 @@ interface Props {
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = initialData.products.find((product) => product.slug === slug);
+  const product = await getPorductBySlug(slug);
   if (!product) return notFound();
+  
 
   return (
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-8">
@@ -37,6 +43,7 @@ export default async function ProductPage({ params }: Props) {
 
         {/* Detalles */}
         <div className="flex flex-col">
+          <StockLabel slug={product.slug} />
           <h1
             className={`${titleFont.className} antialiased font-bold text-xl`}
           >
